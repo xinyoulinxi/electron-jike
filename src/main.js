@@ -33,8 +33,8 @@ var webContents
 
 function createWindow() {
     mainWindow = new BrowserWindow({
-        width: 1000,
-        height: 770,
+        width: 1200,
+        height: 800,
         webPreferences: {
             // nodeIntegration: true
         },
@@ -42,12 +42,12 @@ function createWindow() {
     })
 
     // mainWindow.loadFile('index.html')
-    // mainWindow.loadURL('https://feishu.cn/messenger/', {
     mainWindow.loadURL('https://web.okjike.com/', {
         userAgent: 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.116 Safari/537.36'
         // userAgent: "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.158 Electron/8.2.0 Safari/537.36"
     })
     webContents = mainWindow.webContents
+    appMenu.initWebContents(webContents)
     mainWindow.on('closed', function () {
         mainWindow = null
     })
@@ -173,9 +173,6 @@ app.on('ready', function () {
     // 先设置 cb 然后再 init 
     appTray.init(electron, app, mainWindow)
 
-    // globalShortcut.register('CommandOrControl+shift+m', () => {
-    //     console.log('CommandOrControl+shift+m is pressed')
-    // })
     globalShortcut.register('alt+shift+m', () => {
         // console.log('alt+shift+m is pressed')
         appTray.appTray.destroy()

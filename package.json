@@ -1,5 +1,5 @@
 {
-  "name": "electron-jike",
+  "name": "jike-app",
   "version": "1.0.1",
   "main": "src/main.js",
   "description": "An Electron application for jike",
@@ -9,12 +9,14 @@
     "jike"
   ],
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "packager": "electron-packager ./ jike --win=x64 --out ../outApp --app-version 1.0.1 --overwrite --icon=./icon/icon.jpg"
   },
   "devDependencies": {
-    "electron": "^8.2.2",
-    "electron-builder": "^22.4.1",
-    "electron-package": "^0.1.0"
+    "electron": "^8.3.3",
+    "electron-builder": "^22.7.0",
+    "electron-package": "^0.1.0",
+    "electron-packager": "^14.2.1"
   },
   "linux": {
     "category": "Office",
@@ -32,5 +34,8 @@
     "desktop": {
       "Encoding": "UTF-8"
     }
+  },
+  "dependencies": {
+    "electron-prebuilt": "^1.4.13"
   }
 }

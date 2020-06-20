@@ -1,4 +1,7 @@
 'use strict';
+
+const { WebContents, webContents } = require("electron");
+var mWebContents
 //------------------------------ 设置菜单 --------------------------
 /**
  * 注册键盘快捷键
@@ -38,7 +41,7 @@ let template = [
         }, {
             type: 'separator'
         }]
-    }
+    },
 ]
 
 /**
@@ -81,13 +84,28 @@ function addUpdateMenuItems (electron , items, position) {
 class AppMenu{
 
 }
-
+AppMenu.prototype.initWebContents = function( webContents){
+    mWebContents = webContents
+}
 AppMenu.prototype.init = function( electron ){
     // 针对Windows端的一些配置
     if (process.platform === 'win32') {
         const helpMenu = template[template.length - 1].submenu
         addUpdateMenuItems(electron, helpMenu, 0)
     }
+
+    // 刷新页面
+    template[0].submenu.push({
+        label: '刷新',
+        // accelerator: 'Command+Q',
+        click: function () {
+            if(mWebContents != null){
+                mWebContents.reloadIgnoringCache()
+            }else{
+                console.log("暂时不能刷新");
+            }
+        }
+    })
 
     template[0].submenu.push({
         label: '退出',

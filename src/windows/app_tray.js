@@ -52,7 +52,7 @@ AppTray.init = function (electronObj, app, win) {
     //图标的上下文菜单
     AppTray.contextMenu = AppTray.electron.Menu.buildFromTemplate(AppTray.trayMenuTemplate);
     //设置此托盘图标的悬停提示内容
-    AppTray.appTray.setToolTip('Feishu');
+    AppTray.appTray.setToolTip('即刻-Jike');
     //设置此图标的上下文菜单
     AppTray.appTray.setContextMenu(AppTray.contextMenu);
 
