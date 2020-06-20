@@ -8,8 +8,8 @@ class Configuration{
         this.path = require('path')
         this.rootDir =  path.join(__dirname, "../");
         this.iconDir =  path.join(this.rootDir, "icon/")
-        this.icon128 = path.join(this.iconDir, "/icon.png");
-        this.dock32 = path.join(this.iconDir, '/dock/32.png')
+        this.icon128 = path.join(this.iconDir, "/icon.ico");
+        this.dock32 = path.join(this.iconDir, '/dock/32.ico')
         this.dock32Empty = path.join(this.iconDir, '/dock/32empty.png')
     }
 }
